@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Refrigerator Display</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #ffffff;
+      margin: 0;
+      position: relative;
+    }
+
+    .monitor {
+      width: 600px;
+      height: 400px;
+      background-color: #000;
+      border: 20px solid #aaa;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+    }
+
+    .clock {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-bottom: 20px;
+    }
+
+    .power-btn,
+    .info-btn {
+      background-color: red;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .info-section {
+      color: #fff;
+      display: none;
+    }
+
+    .info-btn {
+      margin-right: 10px;
+    }
+
+    .display-section {
+      margin-top: 20px;
+    }
+
+    .display-image {
+      display: none;
+      max-width: 100%;
+      max-height: 100%;
+      width: 550px;
+      height: 170px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #ffffff;
+      color: #000000;
+      text-align: left;
+      padding: 10px 0;
+    }
+
+    .temperature {
+      font-size: 16px;
+      color: #fff;
+      padding: 10px 0;
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="monitor">
+    <div class="screen">
+      <div id="clock" class="clock">
+      </div>
+      <div id="temperature" class="temperature">
+        Temperature: 39°F
+      </div>
+      <div class="buttons">
+        <button id="powerBtn" class="power-btn" onclick="togglePower()">Power</button>
+      </div>
+      <div class="info-section" id="infoSection">
+        <button id="fridgeBtn" class="info-btn" onclick="toggleFridge()">Inside the Fridge</button>
+        <button id="tvBtn" class="info-btn" onclick="toggleTV()">TV</button>
+        <button id="browserBtn" class="info-btn" onclick="toggleBrowser()">Browse The Web</button>
+      </div>
+      <div class="display-section">
+        <img id="fridgeImage" class="display-image"
+          src="https://hips.hearstapps.com/hmg-prod/images/fridge-promo-1534795733.jpg?crop=0.651xw:0.649xh;0.228xw,0.160xh&resize=640:*"
+          alt="Inside the Fridge">
+        <img id="tvImage" class="display-image"
+          src="https://assets2.cbsnewsstatic.com/hub/i/r/2021/03/17/8943de62-3738-44bd-bac6-ba51d166b0c2/thumbnail/640x382/c692a4ad08ac58d766d8f07353bf059e/29-fave-tv-family-feud.jpg?v=26439302e0bbe3219b6ef78d2fd37ce0"
+          alt="TV Display">
+        <img id="browserImage" class="display-image"
+          src="https://www.google.com/chrome/static/images/dark-mode/chrome-classic.png" alt="Browser Display">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const clockElement = document.getElementById('clock');
+    const powerBtn = document.getElementById('powerBtn');
+    const fridgeBtn = document.getElementById('fridgeBtn');
+    const tvBtn = document.getElementById('tvBtn');
+    const browserBtn = document.getElementById('browserBtn');
+    const fridgeImage = document.getElementById('fridgeImage');
+    const tvImage = document.getElementById('tvImage');
+    const browserImage = document.getElementById('browserImage');
+    const infoSection = document.getElementById('infoSection');
+
+    let powerOn = false;
+    let fridgeClicked = false;
+    let tvClicked = false;
+    let browserClicked = false;
+
+    window.onload = function () {
+      updateTime();
+      clockInterval = setInterval(updateTime, 1000);
+    };
+
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    function hideImages() {
+      fridgeImage.style.display = 'none';
+      tvImage.style.display = 'none';
+      browserImage.style.display = 'none';
+    }
+
+    function toggleFridge() {
+      if (!fridgeClicked) {
+        hideImages();
+        fridgeImage.style.display = 'block';
+        fridgeBtn.style.backgroundColor = 'green';
+        tvBtn.style.backgroundColor = 'red';
+        browserBtn.style.backgroundColor = 'red';
+      } else {
+        fridgeImage.style.display = 'none';
+        fridgeBtn.style.backgroundColor = 'red';
+      }
+      fridgeClicked = !fridgeClicked;
+    }
+
+    function toggleTV() {
+      if (!tvClicked) {
+        hideImages();
+        tvImage.style.display = 'block';
+        tvBtn.style.backgroundColor = 'green';
+        fridgeBtn.style.backgroundColor = 'red';
+        browserBtn.style.backgroundColor = 'red';
+      } else {
+        tvImage.style.display = 'none';
+        tvBtn.style.backgroundColor = 'red';
+      }
+      tvClicked = !tvClicked;
+    }
+
+    function toggleBrowser() {
+      if (!browserClicked) {
+        hideImages();
+        browserImage.style.display = 'block';
+        browserBtn.style.backgroundColor = 'green';
+        tvBtn.style.backgroundColor = 'red';
+        fridgeBtn.style.backgroundColor = 'red';
+      } else {
+        browserImage.style.display = 'none';
+        browserBtn.style.backgroundColor = 'red';
+      }
+      browserClicked = !browserClicked;
+    }
+
+    function toggleImage(imageElement) {
+      hideImages();
+      if (imageElement.style.display === 'none') {
+        imageElement.style.display = 'block';
+      } else {
+        imageElement.style.display = 'none';
+      }
+    }
+
+    function togglePower() {
+      powerOn = !powerOn;
+      if (powerOn) {
+        powerBtn.style.backgroundColor = 'green';
+        updateTime();
+        clockInterval = setInterval(updateTime, 1000);
+        infoSection.style.display = 'flex';
+        temperature.style.display = 'block';
+        browserBtn.style.backgroundColor = 'red';
+        tvBtn.style.backgroundColor = 'red';
+        fridgeBtn.style.backgroundColor = 'red';
+      } else {
+        powerBtn.style.backgroundColor = 'red';
+        clearInterval(clockInterval);
+        clockElement.textContent = '';
+        hideImages();
+        infoSection.style.display = 'none';
+        temperature.style.display = 'none';
+      }
+    }
+  </script>
+  <footer>
+    <hr>
+    <small>&copy; Eric Guzman, 03/4/24</small>
+  </footer>
+</body>
+
+</html>
