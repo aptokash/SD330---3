@@ -13,32 +13,31 @@
 	</style>	
 </head>	
 <body>
-<p id=files"> 
+1 <p id="files"> 
 
 
 <script>
 function githubFilelist(){
-				
-		var htmlString = "";
+			
+	var htmlString = "";
 	
-	  // this creates JS object 'data' with a list of files  
-          // change "aptokash/SD330" to your github id and repository name 
-		(async () => {
-			const response = await fetch("https://api.github.com/repos/aptokash/SD330/contents/");
-			const data = await response.json();
+	// this creates JS object 'data' with a list of files  
+        // change "aptokash/SD330" to your github id and repository name 
+	(async () => {
+		const response = await fetch("https://api.github.com/repos/aptokash/SD330/contents/");
+		const data = await response.json();
     	
-	  // loop through the list of files, set "file" to each file name
+	 // loop through the list of files, set "file" to each file name
     		for (let file of data) {
+			fname = file.name;           
+			fpath = "https://aptokash.github.io/SD330/" + fname;  
 				
-				fname = file.name;           
-				fpath = "https://aptokash.github.io/SD330/" + fname;  
-				
-				htmlString += "<p>" + fname ;
-				htmlString += "<p>" + fpath ;
-			}
+			htmlString += "<p>" + fname ;
+			htmlString += "<p>" + fpath ;
+		}
         
-		document.getElementById('files').innerHTML = htmlString;
-		})()
+	document.getElementById('files').innerHTML = htmlString;
+	})()
 	
 	}
 </script>
