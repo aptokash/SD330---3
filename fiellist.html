@@ -1,0 +1,44 @@
+<!doctype  html >
+<html>
+    <head> 
+	<style>
+		body 	{ background-color: #A2A3A4; font-family: times; } 
+		a       { color: black;} 
+		.bg	{  width: 100%;	z-index: 0; border: 2px solid black; }
+		.block2 { background-color: #728fce;   /*344b60 */
+			  font-size:18px;
+			  border: 1px solid black;
+		          padding:20px 20px 20px 20px;	
+			}
+	</style>	
+</head>	
+<body onload="githubFilelist()">
+1 <p id="files"> 
+
+
+<script>
+function githubFilelist(){
+			
+	var htmlString = "";
+	
+	// this creates JS object 'data' with a list of files  
+        // change "aptokash/SD330" to your github id and repository name 
+	(async () => {
+		const response = await fetch("https://api.github.com/repos/aptokash/SD330/contents/");
+		const data = await response.json();
+    	
+	 // loop through the list of files, set "file" to each file name
+    		for (let file of data) {
+			fname = file.name;           
+			fpath = "https://aptokash.github.io/SD330/" + fname;  
+				
+			htmlString += "<p>" + fname ;
+			htmlString += "<p>" + fpath ;
+		}
+        
+	document.getElementById('files').innerHTML = htmlString;
+	})()
+	
+	}
+</script>
+  
