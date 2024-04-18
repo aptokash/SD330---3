@@ -1,0 +1,11 @@
+{
+  "foy":  {
+	      "spaces" : "10",
+		    "comments": "no parking this weekend"
+  },
+	"riverview": {
+		    "spaces": "45",
+		    "comments": ""
+	}
+       
+}      
