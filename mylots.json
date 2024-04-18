@@ -1,9 +1,9 @@
 {
-  "foy":  {
+  "Foy":  {
 	      "spaces" : "10",
-		    "comments": "no parking this weekend"
+	      "comments": "No parking this weekend!"
   },
-	"riverview": {
+	"Riverview": {
 		    "spaces": "45",
 		    "comments": ""
 	}
