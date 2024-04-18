@@ -1,10 +1,12 @@
 {
   "Foy":  {
 	      "spaces" : "10",
+	      "Available" : "0", 	
 	      "comments": "No parking this weekend!"
   },
 	"Riverview": {
 		    "spaces": "45",
+		    "available": "40",
 		    "comments": ""
 	}
        
