@@ -1,13 +1,17 @@
 {
-  "Foy":  {
-	      "spaces" : "10",
-	      "available" : "0", 	
-	      "comments": "No parking this weekend!"
-  },
-	"Riverview": {
-		    "spaces": "45",
-		    "available": "40",
-		    "comments": ""
+	"Foy":  {
+		"spaces" 	: "10",
+	    "available" : "0", 	
+	    "comments"	: "No parking this weekend!",
+	    "facstaff"	: "YES",
+		"map"		: "mylots-foy.jpg",
+	},
+"Riverview": {
+	    "spaces"	: "45",
+	    "available"	: "40",
+	    "comments"	: "",
+		"facstaff"	: "NO",
+		"map"		: "mylots-river.jpg"
 	}
        
 }      
