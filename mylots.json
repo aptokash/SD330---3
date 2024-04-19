@@ -22,7 +22,7 @@
 			"map"		: "mylots-mccann.jpg"
 		}
 	},
-	"Spaces": {
+	"foy": {
 		"001": {
 			"open" 		  : "yes",
 			"restricted"  : "yes",
