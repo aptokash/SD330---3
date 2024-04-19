@@ -23,12 +23,47 @@
 		}
 	},
 	"Foy": {
-		"001": {
+		"W01": {
 			"open" 		  : "yes",
 			"restricted"  : "yes",
 			"reserved by" : "S Smith"
 		
-		}		
-	
+		},
+		"W02": {
+			"open" 		  : "no",
+			"restricted"  : "yes",
+			"reserved by" : ""
+		
+		},
+		"W03": {
+			"open" 		  : "no",
+			"restricted"  : "yes",
+			"reserved by" : "J Crew"
+		
+		},		
+		"W04": {
+			"open" 		  : "no",
+			"restricted"  : "yes",
+			"reserved by" : ""
+		
+		},
+		"W05": {
+			"open" 		  : "no",
+			"restricted"  : "no",
+			"reserved by" : "J Biden"
+		
+		},
+		"W06": {
+			"open" 		  : "no",
+			"restricted"  : "no",
+			"reserved by" : "D Trump"
+		
+		},
+		"W07": {
+			"open" 		  : "no",
+			"restricted"  : "no",
+			"reserved by" : "D Trump"
+		
+		}
 	}
 }      
