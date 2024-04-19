@@ -60,9 +60,9 @@
 		
 		},
 		"W07": {
-			"open" 		  : "no",
+			"open" 		  : "yes",
 			"restricted"  : "no",
-			"reserved by" : "D Trump"
+			"reserved by" : ""
 		
 		}
 	}
